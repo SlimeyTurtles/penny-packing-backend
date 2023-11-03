@@ -23,7 +23,7 @@ public class API {
     @CrossOrigin(
         origins = {"http://localhost:3000", "https://penny-packing.vercel.app/"}, 
         allowedHeaders = "Requestor-Type", 
-        exposedHeaders = "{Access-Control-Allow-Origin")
+        exposedHeaders = "Access-Control-Allow-Origin")
     @GetMapping("/square/{shapeSize}/{coinSize}")
     public ResponseEntity<List<Coordinate>> getSquare(
         @PathVariable("shapeSize") int shapeSize,

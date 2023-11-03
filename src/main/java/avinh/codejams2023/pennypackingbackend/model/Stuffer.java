@@ -25,9 +25,9 @@ public class Stuffer {
             for (double y = shape.minCoordinate.y + (coin.size.y / 2); y < shape.maxCoordinate.y; y += coin.size.y) {
                 for (double z = shape.minCoordinate.z + (coin.size.z / 2); z < shape.maxCoordinate.z; z += coin.size.z) {
                     Coordinate coordinate = new Coordinate(x, y, z);
-                    
+
                     coin.updatePosition(coordinate);
-                    
+
                     if (checkCoin(shape, coin)) {
                         arrayList.add(coordinate);
                     }
@@ -45,9 +45,9 @@ public class Stuffer {
     }
 
     public static void main(String[] args) {
-        Cube myCube = new Cube(20);
+        Cube myCube = new Cube(3);
         Coordinate myCoordinate = new Coordinate(0, 0, 0);
-        HorizontalCoin myCoin = new HorizontalCoin(myCoordinate, 2);
+        HorizontalCoin myCoin = new HorizontalCoin(myCoordinate, 1);
         Stuffer myStuffer = new Stuffer();
 
         Coordinate[] coordinateList = myStuffer.cubicStuffer(myCube, myCoin);

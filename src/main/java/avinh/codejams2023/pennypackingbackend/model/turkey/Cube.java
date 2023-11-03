@@ -4,12 +4,12 @@ public class Cube extends Shape {
 
     public Cube(int size) {
         super(new Surface[]{
-            new Surface(new Coordinate((-size/2),(-size/2),(-size/2)), new Coordinate((-size/2),(-size/2),(size/2)), new Coordinate((size/2),(-size/2),(-size/2))),
-            new Surface(new Coordinate((-size/2),(-size/2),(-size/2)), new Coordinate((-size/2),(size/2),(-size/2)), new Coordinate((-size/2),(-size/2),(size/2))),
-            new Surface(new Coordinate((-size/2),(-size/2),(-size/2)), new Coordinate((size/2),(-size/2),(-size/2)), new Coordinate((-size/2),(size/2),(-size/2))),
-            new Surface(new Coordinate((size/2),(size/2),(size/2)), new Coordinate((-size/2),(size/2),(size/2)), new Coordinate((size/2),(size/2),(-size/2))),
-            new Surface(new Coordinate((size/2),(size/2),(size/2)), new Coordinate((size/2),(size/2),(-size/2)), new Coordinate((size/2),(-size/2),(size/2))),
-            new Surface(new Coordinate((size/2),(size/2),(size/2)), new Coordinate((size/2),(-size/2),(size/2)), new Coordinate((-size/2),(size/2),(size/2)))
+            new Surface(new Coordinate((double) -size/2,0,(double) -size/2), new Coordinate((double) -size/2,0,(double) size/2), new Coordinate((double) size/2,0,(double) -size/2)),
+            new Surface(new Coordinate((double) -size/2,0,(double) -size/2), new Coordinate((double) -size/2,size,(double) -size/2), new Coordinate((double) -size/2,0,(double) size/2)),
+            new Surface(new Coordinate((double) -size/2,0,(double) -size/2), new Coordinate((double) size/2,0,(double) -size/2), new Coordinate((double) -size/2,size,(double) -size/2)),
+            new Surface(new Coordinate((double) size/2,size,(double) size/2), new Coordinate((double) -size/2,size,(double) size/2), new Coordinate((double) size/2,size,(double) -size/2)),
+            new Surface(new Coordinate((double) size/2,size,(double) size/2), new Coordinate((double) size/2,size,(double) -size/2), new Coordinate((double) size/2,0,(double) size/2)),
+            new Surface(new Coordinate((double) size/2,size,(double) size/2), new Coordinate((double) size/2,0,(double) size/2), new Coordinate((double) -size/2,size,(double) size/2))
         });
     }
 

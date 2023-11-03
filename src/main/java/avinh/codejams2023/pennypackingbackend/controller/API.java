@@ -20,39 +20,23 @@ import avinh.codejams2023.pennypackingbackend.model.turkey.Cube;
 @RequestMapping("/api")
 public class API {
 
-    @GetMapping("/square")
-    public List<Coordinate> getSquare() {
-        Cube myCube = new Cube(20);
-        Coordinate myCoordinate = new Coordinate(0, 0, 0);
-        HorizontalCoin myCoin = new HorizontalCoin(myCoordinate, 2);
-        Stuffer myStuffer = new Stuffer();
-
-        Coordinate[] coordinateList = myStuffer.stuff(myCube, myCoin);
-
-        ArrayList<Coordinate> myList = new ArrayList<Coordinate>();
-
-        for (Coordinate coordinate : coordinateList) {
-            myList.add(coordinate);
-        }
-
-        return myList;
-    }
-
     @CrossOrigin(
         origins = {"http://localhost:3000", "https://penny-packing.vercel.app/"}, 
         allowedHeaders = "Requestor-Type", 
         exposedHeaders = "{Access-Control-Allow-Origin")
-    @GetMapping("/square/{size}")
-    public ResponseEntity<List<Coordinate>> getSquare(@PathVariable("size") int size) {
+    @GetMapping("/square/{shapeSize}/{coinSize}")
+    public ResponseEntity<List<Coordinate>> getSquare(
+        @PathVariable("shapeSize") int shapeSize,
+        @PathVariable("coinSize") int coinSize
+        ) {
 
         HttpHeaders headers = new HttpHeaders();
 
-        Cube myCube = new Cube(size);
-        Coordinate myCoordinate = new Coordinate(0, 0, 0);
-        HorizontalCoin myCoin = new HorizontalCoin(myCoordinate, 2);
+        Cube myCube = new Cube(shapeSize);
+        HorizontalCoin myCoin = new HorizontalCoin(new Coordinate(0, 0, 0), coinSize);
         Stuffer myStuffer = new Stuffer();
 
-        Coordinate[] coordinateList = myStuffer.stuff(myCube, myCoin);
+        Coordinate[] coordinateList = myStuffer.cubicStuffer(myCube, myCoin);
 
         ArrayList<Coordinate> myList = new ArrayList<Coordinate>();
 

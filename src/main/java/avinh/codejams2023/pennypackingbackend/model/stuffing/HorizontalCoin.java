@@ -12,10 +12,17 @@ public class HorizontalCoin {
         updatePosition(coordinate);
     }
 
+    // Manually declare X Y Z
     public HorizontalCoin(Coordinate coordinate, int xSize, int ySize, int zSize) {
         this(coordinate, new Coordinate(xSize, ySize, zSize));
     }
+
+    // Radius & Height Constructor
+    public HorizontalCoin(Coordinate coordinate, int height, int radius) {
+        this(coordinate, new Coordinate((radius/2), height, (radius/2)));
+    }
     
+    // Size constructor where height == radius
     public HorizontalCoin(Coordinate coordinate, int size) {
         this(coordinate, size, size, size);
     }

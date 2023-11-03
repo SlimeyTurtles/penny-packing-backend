@@ -17,7 +17,7 @@ public class Stuffer {
         return true;
     }
 
-    public Coordinate[] stuff(Shape shape, HorizontalCoin coin) {
+    public Coordinate[] cubicStuffer(Shape shape, HorizontalCoin coin) {
 
         ArrayList<Coordinate> arrayList = new ArrayList<Coordinate>();
 
@@ -50,7 +50,7 @@ public class Stuffer {
         HorizontalCoin myCoin = new HorizontalCoin(myCoordinate, 2);
         Stuffer myStuffer = new Stuffer();
 
-        Coordinate[] coordinateList = myStuffer.stuff(myCube, myCoin);
+        Coordinate[] coordinateList = myStuffer.cubicStuffer(myCube, myCoin);
 
         for (Coordinate coordinate : coordinateList) {
             System.out.println(coordinate);

@@ -46,7 +46,6 @@ public class API {
     public ResponseEntity<List<Coordinate>> getSquare(@PathVariable("size") int size) {
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Access-Control-Allow-Origin", "true");
 
         Cube myCube = new Cube(size);
         Coordinate myCoordinate = new Coordinate(0, 0, 0);

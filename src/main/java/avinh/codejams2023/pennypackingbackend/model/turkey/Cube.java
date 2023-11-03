@@ -4,12 +4,12 @@ public class Cube extends Shape {
 
     public Cube(int size) {
         super(new Surface[]{
-            new Surface(new Coordinate(0,0,0), new Coordinate(0,0,size), new Coordinate(size,0,0)),
-            new Surface(new Coordinate(0,0,0), new Coordinate(0,size,0), new Coordinate(0,0,size)),
-            new Surface(new Coordinate(0,0,0), new Coordinate(size,0,0), new Coordinate(0,size,0)),
-            new Surface(new Coordinate(size,size,size), new Coordinate(0,size,size), new Coordinate(size,size,0)),
-            new Surface(new Coordinate(size,size,size), new Coordinate(size,size,0), new Coordinate(size,0,size)),
-            new Surface(new Coordinate(size,size,size), new Coordinate(size,0,size), new Coordinate(0,size,size))
+            new Surface(new Coordinate((-size/2),(-size/2),(-size/2)), new Coordinate((-size/2),(-size/2),(size/2)), new Coordinate((size/2),(-size/2),(-size/2))),
+            new Surface(new Coordinate((-size/2),(-size/2),(-size/2)), new Coordinate((-size/2),(size/2),(-size/2)), new Coordinate((-size/2),(-size/2),(size/2))),
+            new Surface(new Coordinate((-size/2),(-size/2),(-size/2)), new Coordinate((size/2),(-size/2),(-size/2)), new Coordinate((-size/2),(size/2),(-size/2))),
+            new Surface(new Coordinate((size/2),(size/2),(size/2)), new Coordinate((-size/2),(size/2),(size/2)), new Coordinate((size/2),(size/2),(-size/2))),
+            new Surface(new Coordinate((size/2),(size/2),(size/2)), new Coordinate((size/2),(size/2),(-size/2)), new Coordinate((size/2),(-size/2),(size/2))),
+            new Surface(new Coordinate((size/2),(size/2),(size/2)), new Coordinate((size/2),(-size/2),(size/2)), new Coordinate((-size/2),(size/2),(size/2)))
         });
     }
 

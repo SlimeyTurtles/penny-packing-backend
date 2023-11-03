@@ -38,12 +38,15 @@ public class API {
         return myList;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")
+    @CrossOrigin(
+        origins = {"http://localhost:3000", "https://penny-packing.vercel.app/"}, 
+        allowedHeaders = "Requestor-Type", 
+        exposedHeaders = "{Access-Control-Allow-Origin")
     @GetMapping("/square/{size}")
     public ResponseEntity<List<Coordinate>> getSquare(@PathVariable("size") int size) {
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set("X-Get-Header", "ExampleHeader");
+        headers.set("Access-Control-Allow-Origin", "true");
 
         Cube myCube = new Cube(size);
         Coordinate myCoordinate = new Coordinate(0, 0, 0);

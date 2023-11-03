@@ -3,6 +3,9 @@ package avinh.codejams2023.pennypackingbackend.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +38,13 @@ public class API {
         return myList;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")
     @GetMapping("/square/{size}")
-    public List<Coordinate> getSquare(@PathVariable("size") int size) {
+    public ResponseEntity<List<Coordinate>> getSquare(@PathVariable("size") int size) {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("X-Get-Header", "ExampleHeader");
+
         Cube myCube = new Cube(size);
         Coordinate myCoordinate = new Coordinate(0, 0, 0);
         HorizontalCoin myCoin = new HorizontalCoin(myCoordinate, 2);
@@ -50,7 +58,7 @@ public class API {
             myList.add(coordinate);
         }
 
-        return myList;
+        return ResponseEntity.ok().headers(headers).body(myList);
     }
 
 }
